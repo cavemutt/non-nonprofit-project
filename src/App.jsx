@@ -21,6 +21,7 @@ function App() {
 
   useEffect(() => {
       getData()
+      document.querySelector('#home-link').click()
   },[])
 
   const path = (e) => {
@@ -68,7 +69,7 @@ function App() {
             <nav className="nav">
               <ul>
                 <li>
-                  <Link to="/" onClick={(e) => path(e)}><img src={Logo} className="logo"></img></Link>
+                  <Link to="/" id='home-link' onClick={(e) => path(e)}><img src={Logo} className="logo"></img></Link>
                 </li>
                 <li>
                   <Link to="/orgs" className='button orgs-link' onClick={(e) => {path(e)}}>Help Out Now!</Link>
@@ -84,15 +85,15 @@ function App() {
             
             <Switch>
 
-              <Route path="/signup" onClick={(e) => path(e)}>
+              <Route exact path="/signup" onClick={(e) => path(e)}>
                 <Signup getData={getData} apiData={apiData} />
               </Route>
 
-              <Route path="/orgs" onClick={(e) => path(e)}>
+              <Route exact path="/orgs" onClick={(e) => path(e)}>
                 <Organizations getData={getData} apiData={apiData} />
               </Route>
 
-              <Route path="/info" onClick={(e) => path(e)}>
+              <Route exact path="/info" onClick={(e) => path(e)}>
                 <Info />
               </Route>
 
